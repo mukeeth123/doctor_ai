@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+/* Amrutha.AI Design Tokens */
+:root {
+  --color-bg: #F8FBFF;
+  --color-primary: #2D6CDF;
+  --color-border: #E2E8F0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background-color: var(--color-bg);
+  color: #1a202c;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Chat bubble animations */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Chat bubble hover */
+.chat-bubble-wrapper:hover .chat-bubble {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+}
+
+.chat-bubble-wrapper:hover .chat-avatar {
+  transform: scale(1.08);
+}
+
+/* Medical card hover */
+.medical-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(45, 108, 223, 0.12) !important;
+}
+
+/* Input focus glow */
+.chat-input-wrapper:focus-within {
+  border-color: #2D6CDF !important;
+  box-shadow: 0 0 0 3px rgba(45, 108, 223, 0.1);
+}
+
+/* Send button hover */
+.send-btn:not(:disabled):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(45, 108, 223, 0.4) !important;
+}
+
+.send-btn:not(:disabled):active {
+  transform: scale(0.95);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .chat-bubble-wrapper {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .chat-bubble-wrapper>div {
+    max-width: 92% !important;
+  }
+}

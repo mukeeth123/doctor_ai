@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-    baseURL: import.meta.env.VITE_BACKEND_URL || 'http://localhost:8002',
+    baseURL: import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000',
     headers: { 'Content-Type': 'application/json' },
     timeout: 60000,
 })
@@ -39,7 +39,7 @@ export async function sendMessage(patientBasicInfo, conversationHistory, latestU
             return { error: true, message: 'Request timed out. The AI is taking too long to respond. Please try again.' }
         }
         if (err.code === 'ERR_NETWORK' || !err.response) {
-            return { error: true, message: 'Cannot connect to the server. Please check if the backend is running on port 8002.' }
+            return { error: true, message: 'Cannot connect to the server. Please check if the backend is running on port 8000.' }
         }
         // HTTP errors
         if (err.response) {
